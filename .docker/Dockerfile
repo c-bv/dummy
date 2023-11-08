@@ -12,7 +12,7 @@ RUN npm run build
 
 # stage 2 - build the final image and copy the react build files
 FROM nginx:1.17.8-alpine
-COPY --from=build /app/build /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
 # Default port exposure
 EXPOSE 80

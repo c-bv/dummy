@@ -2,6 +2,7 @@ version: "3.9"
 services:
   client: # can be named anything
     build:
+      context: .
       dockerfile: ./.docker/Dockerfile
     restart: unless-stopped
     expose:
