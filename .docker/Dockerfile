@@ -14,11 +14,9 @@ RUN npm run build
 FROM nginx:1.17.8-alpine
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Default port exposure
-EXPOSE 80
 
 RUN rm /etc/nginx/conf.d/default.conf
-COPY nginx.conf /etc/nginx/conf.d
+COPY .nginx/nginx.conf /etc/nginx/conf.d
 
 # Start Nginx server
 CMD ["nginx", "-g", "daemon off;"]
